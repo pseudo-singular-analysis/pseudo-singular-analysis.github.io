@@ -1,117 +1,80 @@
-import { useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import NavMenu from './components/NavMenu'
+import Home from './pages/Home'
+import Registration from './pages/Registration'
+import LocalInfo from './pages/LocalInfo'
+import Schedule from './pages/Schedule'
+import Poster from './pages/Poster'
+import Sponsors from './pages/Sponsors'
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activePage, setActivePage] = useState('Home')
 
-  const menuItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Registration', href: '#registration' },
-    { name: 'Local Info', href: '#local-info' },
-    { name: 'Schedule', href: '#schedule' },
-    { name: 'Poster', href: '#poster' },
-    { name: 'Sponsors', href: '#sponsors' },
-  ]
+  const menuItems = useMemo(
+    () => [
+      { name: 'Home', href: '#home', id: 'home' },
+      { name: 'Registration', href: '#registration', id: 'registration' },
+      { name: 'Local-Info', href: '#local-info', id: 'local-info' },
+      { name: 'Schedule', href: '#schedule', id: 'schedule' },
+      { name: 'Poster', href: '#poster', id: 'poster' },
+      { name: 'Sponsors', href: '#sponsors', id: 'sponsors' },
+    ],
+    [],
+  )
+
+  useEffect(() => {
+    const updateActivePage = () => {
+      const hash = window.location.hash.slice(1) || 'home'
+      const item = menuItems.find((item) => item.id === hash)
+      if (item) {
+        setActivePage(item.name)
+      }
+    }
+
+    updateActivePage()
+    window.addEventListener('hashchange', updateActivePage)
+    return () => window.removeEventListener('hashchange', updateActivePage)
+  }, [menuItems])
+
+  const handleNavClick = (item) => {
+    setActivePage(item.name)
+  }
+
+  const renderActivePage = () => {
+    switch (activePage) {
+      case 'Registration':
+        return <Registration />
+      case 'Local-Info':
+        return <LocalInfo />
+      case 'Schedule':
+        return <Schedule />
+      case 'Poster':
+        return <Poster />
+      case 'Sponsors':
+        return <Sponsors />
+      case 'Home':
+      default:
+        return <Home />
+    }
+  }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Navigation */}
-      <nav className="bg-white shadow-md sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            {/* Logo/Brand */}
-            <div className="flex-shrink-0">
-              <h1 className="text-xl font-bold text-gray-900">
-                Pseudodifferential Techniques
-              </h1>
-            </div>
+    <div style={{ minHeight: '100vh', backgroundColor: '#e2e8f0' }}>
+      {/* Body wrapper - centers content with max-width */}
+      <div style={{ maxWidth: '1152px', margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ backgroundColor: 'white', minHeight: '100vh', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
+          <NavMenu
+            items={menuItems}
+            activePage={activePage}
+            onNavigate={handleNavClick}
+          />
 
-            {/* Desktop Menu */}
-            <div className="hidden md:flex md:space-x-1">
-              {menuItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200"
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
-                aria-expanded="false"
-              >
-                <span className="sr-only">Open main menu</span>
-                {!isMenuOpen ? (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                )}
-              </button>
-            </div>
-          </div>
+          {/* Main Content */}
+          <main style={{ padding: '40px 24px' }}>
+            {renderActivePage()}
+          </main>
         </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
-              {menuItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
-
-      {/* Main Content Placeholder */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Welcome to the Conference
-          </h2>
-          <p className="text-gray-600">
-            Navigation menu is ready. Content sections will be added here.
-          </p>
-        </div>
-      </main>
+      </div>
     </div>
   )
 }
