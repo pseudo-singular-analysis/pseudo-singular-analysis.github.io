@@ -33,7 +33,7 @@ function Home() {
   ]
 
   const sectionTitleStyle = {
-    fontSize: '22px',
+    fontSize: '23px',
     fontWeight: 700,
     color: '#1e3a5f',
     marginBottom: '20px',
