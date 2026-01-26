@@ -1,9 +1,28 @@
 function Sponsors() {
+  const sectionTitleStyle = {
+    fontSize: '22px',
+    fontWeight: 700,
+    color: '#1e3a5f',
+    marginBottom: '20px',
+    paddingBottom: '10px',
+    borderBottom: '2px solid #e0e0e0'
+  }
+
   return (
-    <section className="text-center">
-      <h2 className="text-3xl font-bold text-gray-900 mb-4">Sponsors</h2>
-      <p className="text-gray-600">Sponsor details will be added here.</p>
-    </section>
+    <div>
+      <section>
+        <h2 style={sectionTitleStyle}>Sponsors & Partners</h2>
+        
+        <p style={{ 
+          fontSize: '15px', 
+          color: '#333', 
+          lineHeight: 1.6
+        }}>
+          We gratefully acknowledge the support of our sponsors and partners. 
+          Their logos are displayed in the footer of this website.
+        </p>
+      </section>
+    </div>
   )
 }
 

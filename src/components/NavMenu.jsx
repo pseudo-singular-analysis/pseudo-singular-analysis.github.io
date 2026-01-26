@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Button from './Button'
 
 function NavMenu({ items, activePage, onNavigate }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -9,229 +8,131 @@ function NavMenu({ items, activePage, onNavigate }) {
     setIsMenuOpen(false)
   }
 
+  const linkStyle = (isActive) => ({
+    color: isActive ? '#ffffff' : 'rgba(255, 255, 255, 0.8)',
+    fontWeight: isActive ? 700 : 400,
+    fontSize: '15px',
+    textDecoration: 'none',
+    padding: '8px 12px',
+    transition: 'color 0.2s ease',
+    cursor: 'pointer',
+    whiteSpace: 'nowrap'
+  })
+
   return (
     <>
       <nav style={{ 
-        backgroundColor: '#f8fafc', 
-        borderBottom: '1px solid #e2e8f0',
+        backgroundColor: '#1e3a5f',
         position: 'sticky',
         top: 0,
-        zIndex: 50
+        zIndex: 100
       }}>
-        <div style={{ padding: '16px 24px' }}>
-          <div style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'space-between'
-          }}>
-            
-            {/* Left side - Conference Info */}
-            <div style={{ flexShrink: 1, minWidth: 0 }}>
-              <h1 style={{ 
-                fontSize: '16px', 
-                fontWeight: 600, 
-                color: '#1e293b',
-                margin: 0,
-                lineHeight: 1.4
-              }}>
-                Pseudodifferential Techniques in Singular Analysis
-              </h1>
-              <p style={{ 
-                fontSize: '14px', 
-                color: '#475569',
-                margin: '4px 0 0 0'
-              }}>
-                Mathematisches Institut Georg-August-Universität Göttingen
-              </p>
-              <p style={{ 
-                fontSize: '14px', 
-                color: '#64748b',
-                margin: '2px 0 0 0'
-              }}>
-                31 August - 4 September 2026
-              </p>
-            </div>
-
-            {/* Right side - Desktop Navigation */}
-            <div className="desktop-nav" style={{ 
-              display: 'flex',
-              alignItems: 'center',
-              flexShrink: 0,
-              marginLeft: '24px'
-            }}>
-              <div style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '4px',
-                backgroundColor: '#f1f5f9',
-                borderRadius: '9999px',
-                padding: '6px',
-                border: '1px solid #e2e8f0'
-              }}>
-                {items.map((item) => (
-                  <Button
-                    key={item.name}
-                    href={item.href}
-                    isActive={activePage === item.name}
-                    onClick={() => handleNavigate(item)}
-                  >
-                    {item.name}
-                  </Button>
-                ))}
-              </div>
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="mobile-menu-btn" style={{ 
-              display: 'none',
-              flexShrink: 0,
-              marginLeft: '16px'
-            }}>
-              <button
-                onClick={() => setIsMenuOpen(true)}
-                style={{
-                  padding: '10px',
-                  borderRadius: '9999px',
-                  color: '#475569',
-                  backgroundColor: 'white',
-                  border: '1px solid #e2e8f0',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-                aria-expanded={isMenuOpen}
-                aria-controls="mobile-menu"
-              >
-                <span className="sr-only">Open menu</span>
-                <svg style={{ height: '20px', width: '20px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile Slide-in Menu Overlay */}
-      {isMenuOpen && (
-        <div 
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.3)',
-            zIndex: 100
-          }}
-          onClick={() => setIsMenuOpen(false)}
-        />
-      )}
-
-      {/* Mobile Slide-in Menu */}
-      <div 
-        id="mobile-menu"
-        style={{
-          position: 'fixed',
-          top: 0,
-          right: 0,
-          bottom: 0,
-          width: '280px',
-          maxWidth: '80vw',
-          backgroundColor: 'white',
-          boxShadow: '-4px 0 20px rgba(0, 0, 0, 0.15)',
-          zIndex: 101,
-          transform: isMenuOpen ? 'translateX(0)' : 'translateX(100%)',
-          transition: 'transform 0.3s ease-in-out',
-          display: 'flex',
-          flexDirection: 'column'
-        }}
-      >
-        {/* Menu Header */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '16px 20px',
-          borderBottom: '1px solid #e2e8f0'
-        }}>
-          <span style={{ 
-            fontSize: '16px', 
-            fontWeight: 600, 
-            color: '#1e293b' 
-          }}>
-            Menu
-          </span>
-          <button
-            onClick={() => setIsMenuOpen(false)}
-            style={{
-              padding: '8px',
-              borderRadius: '9999px',
-              color: '#475569',
-              backgroundColor: 'transparent',
-              border: 'none',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-          >
-            <svg style={{ height: '24px', width: '24px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Menu Items */}
         <div style={{ 
-          padding: '16px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '8px'
+          maxWidth: '1200px', 
+          margin: '0 auto',
+          padding: '0 24px'
         }}>
-          {items.map((item) => {
-            const isActive = activePage === item.name
-            return (
+          {/* Desktop Navigation */}
+          <div className="desktop-nav" style={{ 
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            gap: '8px',
+            height: '50px'
+          }}>
+            {items.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 onClick={() => handleNavigate(item)}
-                style={{
-                  padding: '12px 16px',
-                  fontSize: '15px',
-                  fontWeight: isActive ? 600 : 500,
-                  color: isActive ? '#2563eb' : '#475569',
-                  backgroundColor: isActive ? '#eff6ff' : 'transparent',
-                  borderRadius: '8px',
-                  textDecoration: 'none',
-                  transition: 'all 0.15s ease'
-                }}
+                style={linkStyle(activePage === item.name)}
                 onMouseEnter={(e) => {
-                  if (!isActive) {
-                    e.target.style.backgroundColor = '#f1f5f9'
+                  if (activePage !== item.name) {
+                    e.target.style.color = '#ffffff'
                   }
                 }}
                 onMouseLeave={(e) => {
-                  if (!isActive) {
-                    e.target.style.backgroundColor = 'transparent'
+                  if (activePage !== item.name) {
+                    e.target.style.color = 'rgba(255, 255, 255, 0.8)'
                   }
                 }}
               >
                 {item.name}
               </a>
-            )
-          })}
-        </div>
-      </div>
+            ))}
+          </div>
 
-      {/* CSS for responsive behavior - direct jump from desktop to mobile */}
+          {/* Mobile Navigation */}
+          <div className="mobile-nav" style={{ 
+            display: 'none',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            height: '50px'
+          }}>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              style={{
+                padding: '8px',
+                color: 'white',
+                backgroundColor: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center'
+              }}
+            >
+              {!isMenuOpen ? (
+                <svg style={{ height: '24px', width: '24px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              ) : (
+                <svg style={{ height: '24px', width: '24px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu Dropdown */}
+        {isMenuOpen && (
+          <div className="mobile-menu" style={{
+            backgroundColor: '#1e3a5f',
+            borderTop: '1px solid rgba(255,255,255,0.1)',
+            padding: '12px 24px'
+          }}>
+            <div style={{ 
+              maxWidth: '1200px', 
+              margin: '0 auto',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '4px'
+            }}>
+              {items.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => handleNavigate(item)}
+                  style={{
+                    ...linkStyle(activePage === item.name),
+                    padding: '12px 0',
+                    display: 'block'
+                  }}
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </nav>
+
       <style>{`
-        @media (max-width: 900px) {
+        @media (max-width: 800px) {
           .desktop-nav {
             display: none !important;
           }
-          .mobile-menu-btn {
+          .mobile-nav {
             display: flex !important;
           }
         }

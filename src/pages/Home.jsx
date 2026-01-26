@@ -24,7 +24,7 @@ function Home() {
     'Álvaro Sanchez Hernandez',
     'Clément Cren',
     'Erfan Rezaei',
-    'Rares Stan',
+    'Rareș Stan',
   ]
 
   const administration = [
@@ -32,91 +32,68 @@ function Home() {
     'Linda',
   ]
 
-  const cardStyle = {
-    backgroundColor: '#f8fafc',
-    borderRadius: '12px',
-    padding: '24px',
-    marginBottom: '24px',
-    border: '1px solid #e2e8f0'
+  const sectionTitleStyle = {
+    fontSize: '22px',
+    fontWeight: 700,
+    color: '#1e3a5f',
+    marginBottom: '20px',
+    paddingBottom: '10px',
+    borderBottom: '2px solid #e0e0e0'
   }
 
-  const cardTitleStyle = {
-    fontSize: '20px',
+  const subSectionTitleStyle = {
+    fontSize: '16px',
     fontWeight: 600,
-    color: '#1e293b',
-    marginBottom: '16px',
-    paddingBottom: '12px',
-    borderBottom: '2px solid #e2e8f0'
-  }
-
-  const columnTitleStyle = {
-    fontSize: '14px',
-    fontWeight: 600,
-    color: '#64748b',
+    color: '#1e3a5f',
     marginBottom: '12px',
-    textTransform: 'uppercase',
-    letterSpacing: '0.5px'
+    marginTop: '24px'
   }
 
-  const nameStyle = {
+  const listItemStyle = {
     fontSize: '15px',
-    color: '#475569',
-    padding: '6px 0',
-    lineHeight: 1.4
+    color: '#333',
+    padding: '4px 0',
+    paddingLeft: '16px',
+    position: 'relative',
+    lineHeight: 1.6
+  }
+
+  const bulletStyle = {
+    position: 'absolute',
+    left: 0,
+    color: '#1e3a5f'
   }
 
   return (
     <div>
-      {/* Responsive styles */}
-      <style>{`
-        .speakers-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 8px 24px;
-        }
-        @media (max-width: 700px) {
-          .speakers-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-        @media (max-width: 500px) {
-          .speakers-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-        .organizers-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 24px;
-        }
-        @media (max-width: 500px) {
-          .organizers-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-      `}</style>
-
-      {/* Confirmed Speakers Card */}
-      <div style={cardStyle}>
-        <h2 style={cardTitleStyle}>Confirmed Speakers</h2>
-        <div className="speakers-grid">
+      {/* Confirmed Speakers Section */}
+      <section style={{ marginBottom: '48px' }}>
+        <h2 style={sectionTitleStyle}>Confirmed Speakers</h2>
+        <div className="speakers-list">
           {speakers.map((speaker, index) => (
-            <div key={index} style={nameStyle}>
+            <div key={index} style={listItemStyle}>
+              <span style={bulletStyle}>■</span>
               {speaker}
             </div>
           ))}
         </div>
-      </div>
+      </section>
 
-      {/* Organizers Card */}
-      <div style={cardStyle}>
-        <h2 style={cardTitleStyle}>Organizers</h2>
-        <div className="organizers-grid">
+      {/* Organizers Section */}
+      <section>
+        <h2 style={sectionTitleStyle}>Organizers</h2>
+        
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: '32px'
+        }} className="organizers-grid">
           {/* Scientific Column */}
           <div>
-            <h3 style={columnTitleStyle}>Scientific</h3>
+            <h3 style={subSectionTitleStyle}>Scientific</h3>
             {scientificOrganizers.map((organizer, index) => (
-              <div key={index} style={nameStyle}>
+              <div key={index} style={listItemStyle}>
+                <span style={bulletStyle}>■</span>
                 {organizer}
               </div>
             ))}
@@ -124,15 +101,37 @@ function Home() {
 
           {/* Administration Column */}
           <div>
-            <h3 style={columnTitleStyle}>Administration</h3>
+            <h3 style={subSectionTitleStyle}>Administration</h3>
             {administration.map((admin, index) => (
-              <div key={index} style={nameStyle}>
+              <div key={index} style={listItemStyle}>
+                <span style={bulletStyle}>■</span>
                 {admin}
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Responsive styles */}
+      <style>{`
+        .speakers-list {
+          column-count: 3;
+          column-gap: 32px;
+        }
+        @media (max-width: 800px) {
+          .speakers-list {
+            column-count: 2;
+          }
+          .organizers-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        @media (max-width: 500px) {
+          .speakers-list {
+            column-count: 1;
+          }
+        }
+      `}</style>
     </div>
   )
 }
