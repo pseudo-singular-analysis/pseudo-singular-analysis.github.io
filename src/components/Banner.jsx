@@ -6,6 +6,31 @@ function Banner() {
       position: 'relative',
       overflow: 'hidden'
     }}>
+      {/* Animation keyframes */}
+      <style>{`
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .banner-title {
+          animation: slideDown 0.6s ease-out forwards;
+        }
+        .banner-institution {
+          animation: slideDown 0.6s ease-out 0.15s forwards;
+          opacity: 0;
+        }
+        .banner-date {
+          animation: slideDown 0.6s ease-out 0.3s forwards;
+          opacity: 0;
+        }
+      `}</style>
+
       {/* Subtle pattern overlay */}
       <div style={{
         position: 'absolute',
@@ -23,31 +48,40 @@ function Banner() {
         position: 'relative',
         zIndex: 1
       }}>
-        <h1 style={{
-          fontSize: '42px',
-          fontWeight: 400,
-          color: '#ffffff',
-          marginBottom: '16px',
-          lineHeight: 1.2,
-          fontFamily: 'Georgia, "Times New Roman", serif'
-        }}>
+        <h1 
+          className="banner-title"
+          style={{
+            fontSize: '42px',
+            fontWeight: 400,
+            color: '#ffffff',
+            marginBottom: '16px',
+            lineHeight: 1.2,
+            fontFamily: 'Georgia, "Times New Roman", serif'
+          }}
+        >
           Pseudodifferential Techniques in Singular Analysis
         </h1>
         
-        <p style={{
-          fontSize: '18px',
-          color: 'rgba(255, 255, 255, 0.9)',
-          marginBottom: '8px',
-          fontStyle: 'italic'
-        }}>
+        <p 
+          className="banner-institution"
+          style={{
+            fontSize: '18px',
+            color: 'rgba(255, 255, 255, 0.9)',
+            marginBottom: '8px',
+            fontStyle: 'italic'
+          }}
+        >
           Mathematisches Institut Georg-August-Universität Göttingen
         </p>
         
-        <p style={{
-          fontSize: '18px',
-          color: 'rgba(255, 255, 255, 0.85)',
-          fontWeight: 500
-        }}>
+        <p 
+          className="banner-date"
+          style={{
+            fontSize: '18px',
+            color: 'rgba(255, 255, 255, 0.85)',
+            fontWeight: 500
+          }}
+        >
           Göttingen, Germany, August 31 – September 4, 2026
         </p>
       </div>

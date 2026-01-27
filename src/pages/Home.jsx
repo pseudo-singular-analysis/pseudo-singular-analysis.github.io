@@ -1,35 +1,36 @@
 function Home() {
   const speakers = [
-    'Bernd Ammann',
-    'Iakovos Androulidakis',
-    'Abdou Oussama Benabida',
-    'Karsten Bohlen',
-    'Ksenia Fedosova',
-    'Daniel Grieser',
-    'Lucas Lemoine',
-    'Jean-Marie Lescure',
-    'Richard Melrose',
-    'Omar Mohsen',
-    'Sergiu Moroianu',
-    'Victor Nistor',
-    'Paolo Piazza',
-    'Frédéric Rochon',
-    'Julie Rowlett',
-    'Thomas Schick',
-    'Vito Felice Zenobi',
+    { name: 'Bernd Ammann', affiliation: 'Universität Regensburg' },
+    { name: 'Iakovos Androulidakis', affiliation: 'University of Athens' },
+    { name: 'Abdou Oussama Benabida', affiliation: 'Université du Québec à Montréal' },
+    { name: 'Karsten Bohlen', affiliation: 'Universität Regensburg' },
+    { name: 'Alessandro Pietro Contini', affiliation: 'Universität Hannover' },
+    { name: 'Ksenia Fedosova', affiliation: 'Universität Münster' },
+    { name: 'Daniel Grieser', affiliation: 'Universität Oldenburg' },
+    { name: 'Lucas Lemoine', affiliation: 'University of Clermont Auvergne' },
+    { name: 'Jean-Marie Lescure', affiliation: 'University of Clermont Auvergne' },
+    { name: 'Richard Melrose', affiliation: 'MIT' },
+    { name: 'Omar Mohsen', affiliation: 'Paris-Cité University' },
+    { name: 'Sergiu Moroianu', affiliation: 'Universitatea din București & IMAR' },
+    { name: 'Victor Nistor', affiliation: 'Université de Lorraine' },
+    { name: 'Paolo Piazza', affiliation: 'Università di Roma' },
+    { name: 'Frédéric Rochon', affiliation: 'Université du Québec à Montréal' },
+    { name: 'Julie Rowlett', affiliation: 'Chalmers University' },
+    { name: 'Thomas Schick', affiliation: 'Universität Göttingen' },
+    { name: 'Vito Felice Zenobi', affiliation: 'Istituto Nazionale di Alta Matematica' },
   ]
 
   const scientificOrganizers = [
-    'Cipriana Anghel',
-    'Álvaro Sanchez Hernandez',
-    'Clément Cren',
-    'Erfan Rezaei',
-    'Rareș Stan',
+    { name: 'Cipriana Anghel', affiliation: 'Universität Göttingen' },
+    { name: 'Álvaro Sanchez Hernandez', affiliation: 'Universität Hannover' },
+    { name: 'Clément Cren', affiliation: 'Universität Göttingen' },
+    { name: 'Erfan Rezaei', affiliation: 'Universität Göttingen' },
+    { name: 'Rareș Stan', affiliation: 'IMAR Bucharest' },
   ]
 
   const administration = [
-    'Annalena',
-    'Linda',
+    'Annalena Wendehorst',
+    'Linda Haber',
   ]
 
   const sectionTitleStyle = {
@@ -67,20 +68,21 @@ function Home() {
   return (
     <div>
       {/* Confirmed Speakers Section */}
-      <section style={{ marginBottom: '48px' }}>
+      <section className="section-speakers" style={{ marginBottom: '48px' }}>
         <h2 style={sectionTitleStyle}>Confirmed Speakers</h2>
         <div className="speakers-list">
           {speakers.map((speaker, index) => (
-            <div key={index} style={listItemStyle}>
+            <div key={index} style={{ ...listItemStyle, breakInside: 'avoid' }}>
               <span style={bulletStyle}>■</span>
-              {speaker}
+              <span style={{ fontWeight: 500 }}>{speaker.name}</span>
+              <span style={{ color: '#666', marginLeft: '4px' }}>({speaker.affiliation})</span>
             </div>
           ))}
         </div>
       </section>
 
       {/* Organizers Section */}
-      <section>
+      <section className="section-organizers">
         <h2 style={sectionTitleStyle}>Organizers</h2>
         
         <div style={{
@@ -94,7 +96,8 @@ function Home() {
             {scientificOrganizers.map((organizer, index) => (
               <div key={index} style={listItemStyle}>
                 <span style={bulletStyle}>■</span>
-                {organizer}
+                <span style={{ fontWeight: 500 }}>{organizer.name}</span>
+                <span style={{ color: '#666', marginLeft: '4px' }}>({organizer.affiliation})</span>
               </div>
             ))}
           </div>
@@ -112,8 +115,29 @@ function Home() {
         </div>
       </section>
 
-      {/* Responsive styles */}
+      {/* Animations and responsive styles */}
       <style>{`
+        @keyframes slideFromRight {
+          from {
+            opacity: 0;
+            transform: translateX(40px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        .section-speakers {
+          animation: slideFromRight 0.6s ease-out 0.2s forwards;
+          opacity: 0;
+        }
+        
+        .section-organizers {
+          animation: slideFromRight 0.6s ease-out 0.4s forwards;
+          opacity: 0;
+        }
+        
         .speakers-list {
           column-count: 3;
           column-gap: 32px;
