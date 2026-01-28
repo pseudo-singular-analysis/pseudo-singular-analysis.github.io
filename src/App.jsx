@@ -15,10 +15,10 @@ function App() {
     () => [
       { name: 'Home', href: '#home', id: 'home' },
       { name: 'Registration', href: '#registration', id: 'registration' },
-      { name: 'Local-Info', href: '#local-info', id: 'local-info' },
+      { name: 'Local Informations', href: '#local-info', id: 'local-info' },
       { name: 'Schedule', href: '#schedule', id: 'schedule' },
       { name: 'Poster', href: '#poster', id: 'poster' },
-      { name: 'Sponsors', href: '#sponsors', id: 'sponsors' },
+      { name: 'Funding', href: '#funding', id: 'funding' },
     ],
     [],
   )
@@ -45,13 +45,13 @@ function App() {
     switch (activePage) {
       case 'Registration':
         return <Registration />
-      case 'Local-Info':
+      case 'Local Informations':
         return <LocalInfo />
       case 'Schedule':
         return <Schedule />
       case 'Poster':
         return <Poster />
-      case 'Sponsors':
+      case 'Funding':
         return <Sponsors />
       case 'Home':
       default:
@@ -117,28 +117,7 @@ function App() {
             marginBottom: '24px',
             paddingBottom: '24px',
             borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
-          }}>
-            <a 
-              href={sponsorLinks.logo1}
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ display: 'block' }}
-            >
-              <img 
-                src="/logo1.svg" 
-                alt="University Logo" 
-                style={{ 
-                  height: '60px',
-                  width: 'auto',
-                  filter: 'brightness(0) invert(1)',
-                  opacity: 0.9,
-                  transition: 'opacity 0.2s ease'
-                }}
-                onMouseEnter={(e) => e.target.style.opacity = '1'}
-                onMouseLeave={(e) => e.target.style.opacity = '0.9'}
-              />
-            </a>
-            
+          }}>            
             <a 
               href={sponsorLinks.logoGso}
               target="_blank" 
@@ -167,6 +146,26 @@ function App() {
               <img 
                 src="/logo_klaus_tschira.svg" 
                 alt="Klaus Tschira Foundation" 
+                style={{ 
+                  height: '60px',
+                  width: 'auto',
+                  filter: 'brightness(0) invert(1)',
+                  opacity: 0.9,
+                  transition: 'opacity 0.2s ease'
+                }}
+                onMouseEnter={(e) => e.target.style.opacity = '1'}
+                onMouseLeave={(e) => e.target.style.opacity = '0.9'}
+              />
+            </a>
+            <a 
+              href={sponsorLinks.logo1}
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ display: 'block' }}
+            >
+              <img 
+                src="/logo1.svg" 
+                alt="University Logo" 
                 style={{ 
                   height: '60px',
                   width: 'auto',
