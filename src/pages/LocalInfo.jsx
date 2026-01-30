@@ -51,31 +51,64 @@ function LocalInfo() {
       <section className="section-arriving" style={{ marginBottom: '48px' }}>
         <h2 style={sectionTitleStyle}>Arriving in Göttingen</h2>
         
-        <h3 style={subSectionTitleStyle}>By Air</h3>
-        <p style={paragraphStyle}>
-          <strong>Closest airports:</strong> Frankfurt Main International, Hannover, Leipzig, Dortmund.
-        </p>
+        <div className="arriving-content" style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 280px',
+          gap: '40px',
+          alignItems: 'start'
+        }}>
+          {/* Text content */}
+          <div>
+            <h3 style={{ ...subSectionTitleStyle, marginTop: 0 }}>By Air</h3>
+            <p style={paragraphStyle}>
+              <strong>Closest airports:</strong> Frankfurt Main International, Hannover, Leipzig, Dortmund.
+            </p>
 
-        <h3 style={subSectionTitleStyle}>By Train</h3>
-        <p style={paragraphStyle}>
-          Göttingen is well connected by fast trains to most major cities in Germany. 
-          The travel time from Frankfurt is approximately 2 hours, and from Hannover less than 1 hour.
-        </p>
+            <h3 style={subSectionTitleStyle}>By Train</h3>
+            <p style={paragraphStyle}>
+              Göttingen is well connected by fast trains to most major cities in Germany. 
+              The travel time from Frankfurt is approximately 2 hours, and from Hannover less than 1 hour.
+            </p>
 
-        <h3 style={subSectionTitleStyle}>Conference Venue</h3>
-        <p style={paragraphStyle}>
-          The talks will take place at the <strong>Mathematisches Institut</strong> (
-          <a 
-            href="https://maps.app.goo.gl/xbg9z7mzrb7ew9RK7" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{ color: '#2d5a7b', textDecoration: 'underline', fontWeight: 500 }}
-          >
-            map
-          </a>
-          ) — Bunsenstraße 3–5, 37073 Göttingen, 
-          which is about a 15-minute walk from the main train station.
-        </p>
+            <h3 style={subSectionTitleStyle}>Conference Venue</h3>
+            <p style={paragraphStyle}>
+              The talks will take place at the <strong>Mathematisches Institut</strong> (
+              <a 
+                href="https://maps.app.goo.gl/xbg9z7mzrb7ew9RK7" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ color: '#2d5a7b', textDecoration: 'underline', fontWeight: 500 }}
+              >
+                map
+              </a>
+              ) — Bunsenstraße 3–5, 37073 Göttingen, 
+              which is about a 15-minute walk from the main train station.
+            </p>
+          </div>
+
+          {/* Image */}
+          <div style={{ textAlign: 'center' }}>
+            <img 
+              src="/gaenseliesel.jpg" 
+              alt="Gänseliesel statue in Göttingen" 
+              style={{
+                width: '100%',
+                maxWidth: '280px',
+                borderRadius: '8px',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
+              }}
+            />
+            <p style={{
+              fontSize: '13px',
+              color: '#666',
+              marginTop: '12px',
+              fontStyle: 'italic',
+              lineHeight: 1.5
+            }}>
+              Gänseliesel statue, in front of the Old Town Hall.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Accommodation Section */}
@@ -133,7 +166,7 @@ function LocalInfo() {
         </div>
       </section>
 
-      {/* Animations */}
+      {/* Animations and Responsive Styles */}
       <style>{`
         @keyframes slideFromRight {
           from {
@@ -154,6 +187,12 @@ function LocalInfo() {
         .section-accommodation {
           animation: slideFromRight 0.6s ease-out 0.4s forwards;
           opacity: 0;
+        }
+        
+        @media (max-width: 700px) {
+          .arriving-content {
+            grid-template-columns: 1fr !important;
+          }
         }
       `}</style>
     </div>
