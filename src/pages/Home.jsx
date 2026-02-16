@@ -98,7 +98,7 @@ function Home() {
               <div key={index} style={listItemStyle}>
                 <span style={bulletStyle}>■</span>
                 <span style={{ fontWeight: 500 }}>{organizer.name}</span>
-                <span style={{ color: '#666', marginLeft: '4px' }}>({organizer.affiliation})</span>
+                {/* <span style={{ color: '#666', marginLeft: '4px' }}>({organizer.affiliation})</span> */}
               </div>
             ))}
           </div>
