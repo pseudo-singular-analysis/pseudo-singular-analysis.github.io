@@ -1,6 +1,6 @@
 function Home() {
   const speakers = [
-    { name: 'Clara Adana', affiliation: 'TBD' },
+    { name: 'Clara Aldana', affiliation: 'TBD' },
     { name: 'Bernd Ammann', affiliation: 'Universität Regensburg' },
     { name: 'Iakovos Androulidakis', affiliation: 'University of Athens' },
     { name: 'Abdou Oussama Benabida', affiliation: 'Université du Québec à Montréal' },
