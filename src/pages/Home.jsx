@@ -1,5 +1,6 @@
 function Home() {
   const speakers = [
+    { name: 'Clara Adana', affiliation: 'TBD' },
     { name: 'Bernd Ammann', affiliation: 'Universität Regensburg' },
     { name: 'Iakovos Androulidakis', affiliation: 'University of Athens' },
     { name: 'Abdou Oussama Benabida', affiliation: 'Université du Québec à Montréal' },
@@ -29,8 +30,8 @@ function Home() {
   ]
 
   const administration = [
-    'Annalena Wendehorst',
     'Linda Haber',
+    'Annalena Wendehorst',
   ]
 
   const sectionTitleStyle = {
@@ -75,7 +76,7 @@ function Home() {
             <div key={index} style={{ ...listItemStyle, breakInside: 'avoid' }}>
               <span style={bulletStyle}>■</span>
               <span style={{ fontWeight: 500 }}>{speaker.name}</span>
-              <span style={{ color: '#666', marginLeft: '4px' }}>({speaker.affiliation})</span>
+              {/* <span style={{ color: '#666', marginLeft: '4px' }}>({speaker.affiliation})</span> */}
             </div>
           ))}
         </div>
