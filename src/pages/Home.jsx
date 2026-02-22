@@ -66,8 +66,25 @@ function Home() {
     color: '#1e3a5f'
   }
 
+  const paragraphStyle = {
+    fontSize: '15px',
+    color: '#333',
+    lineHeight: 1.7,
+    marginBottom: '16px'
+  }
+
   return (
     <div>
+      {/* About Section */}
+      <section className="section-about" style={{ marginBottom: '48px' }}>
+        <p style={paragraphStyle}>
+          Around 60 years ago, pseudodifferential operators were introduced as a tool for singular integral and elliptic problems in PDE. They quickly became relevant due to their usefulness, exemplified by their role in the Atiyah–Singer index theorem. In the subsequent years, the theory has found new depths and domains of application, and is today very much alive, in particular in the context of singular analytical and geometrical structures.
+        </p>
+        <p style={{ ...paragraphStyle, marginBottom: 0 }}>
+          The goal of this conference is to bring together experts and young researchers from various backgrounds who are interested in the use of pseudodifferential operators in singular settings to discuss their recent projects and results, and foster the communication between the diverse perspectives on the topic.
+        </p>
+      </section>
+
       {/* Confirmed Speakers Section */}
       <section className="section-speakers" style={{ marginBottom: '48px' }}>
         <h2 style={sectionTitleStyle}>Confirmed Speakers</h2>
@@ -98,7 +115,7 @@ function Home() {
               <div key={index} style={listItemStyle}>
                 <span style={bulletStyle}>■</span>
                 <span style={{ fontWeight: 500 }}>{organizer.name}</span>
-                {/* <span style={{ color: '#666', marginLeft: '4px' }}>({organizer.affiliation})</span> */}
+                <span style={{ color: '#666', marginLeft: '4px' }}>({organizer.affiliation})</span>
               </div>
             ))}
           </div>
@@ -129,13 +146,18 @@ function Home() {
           }
         }
         
-        .section-speakers {
+        .section-about {
           animation: slideFromRight 0.6s ease-out 0.2s forwards;
           opacity: 0;
         }
-        
-        .section-organizers {
+
+        .section-speakers {
           animation: slideFromRight 0.6s ease-out 0.4s forwards;
+          opacity: 0;
+        }
+
+        .section-organizers {
+          animation: slideFromRight 0.6s ease-out 0.6s forwards;
           opacity: 0;
         }
         

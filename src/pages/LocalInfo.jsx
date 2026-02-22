@@ -6,6 +6,65 @@ function LocalInfo() {
     { name: 'Hotel Stadt Hannover', url: 'https://www.hotelstadthannover.de/english/' },
   ]
 
+  const foodCategories = [
+    {
+      title: 'Quick Lunch & Bakeries',
+      places: [
+        { name: 'Zentralmensa', desc: 'Main campus cafeteria, about 20 min walk from the Institute. Alternatively, take bus lines 91/92 from Bürgerstraße to Auditorium (~14 min)', url: 'https://maps.app.goo.gl/2jNQ94AcJvNHK4Fy7' },
+        { name: 'Bäckerei Küster', desc: 'Good option for a quick lunch, Weender Str. 106', url: 'https://maps.app.goo.gl/jfLpqAapovpMJsqq9' },
+        { name: 'Göttinger Holzofenbäckerei', desc: 'Good option for a quick lunch, Böttingerstraße 21', url: 'https://maps.app.goo.gl/Q45f1tnH7PNwFSaA9' },
+      ]
+    },
+    {
+      title: 'German & European',
+      places: [
+        { name: 'Bullerjahn', desc: 'European cuisine, Markt 9', url: 'https://maps.app.goo.gl/i5DFY3CYcHw1i6dX9' },
+        { name: 'Kartoffelhaus', desc: 'German cuisine, Goetheallee 8', url: 'https://maps.app.goo.gl/bALrXf2t96n75iSv5' },
+        { name: 'Zum Szültenbürger', desc: 'German cuisine, Prinzenstraße 7', url: 'https://maps.app.goo.gl/DioPNKHXnLpVKVmn7' },
+      ]
+    },
+    {
+      title: 'Italian',
+      places: [
+        { name: 'Tante Giulia', desc: 'Theaterstraße 25', url: 'https://maps.app.goo.gl/TgU1jrCDnLtn8XfH7' },
+        { name: 'Ristorante Fellini', desc: 'Groner-Tor-Straße 28', url: 'https://maps.app.goo.gl/NmkRd1B6tYS5xwdj8' },
+        { name: 'Nudelhaus', desc: 'Rote Str. 13', url: 'https://maps.app.goo.gl/wjH32WYR6NsLPsTN9' },
+      ]
+    },
+    {
+      title: 'Asian',
+      places: [
+        { name: 'Sen Viet Cuisine Bistro', desc: 'Vietnamese, good vegetarian/vegan options, Rote Str. 18', url: 'https://maps.app.goo.gl/4UuZFDbU1mbb25xg8' },
+        { name: 'Asian Fusion Gamie', desc: 'Sushi restaurant, Weender Str. 29', url: 'https://maps.app.goo.gl/VZ6jN9tEAxPJRxcA7' },
+        { name: 'Nam Anh', desc: 'Asian cuisine, Groner Str. 12', url: 'https://maps.app.goo.gl/w3GadW82axqLyEnW7' },
+        { name: 'Goa India', desc: 'Indian, good vegetarian/vegan options, Kurze-Geismar-Straße 43', url: 'https://maps.app.goo.gl/igDNvSgTv3m6UGUb8' },
+        { name: 'India Haus', desc: 'Indian, good vegetarian/vegan options, Kurze-Geismar-Straße 41', url: 'https://maps.app.goo.gl/kxjechs5XsScL8wX6' },
+      ]
+    },
+    {
+      title: 'Middle Eastern, African & South American',
+      places: [
+        { name: 'Palmyra', desc: 'Syrian cuisine, good vegetarian/vegan options, Düstere Str. 10', url: 'https://maps.app.goo.gl/fmhPYTE3kcDQKzo46' },
+        { name: 'Abessina', desc: 'Ethiopian restaurant, Ritterplan 2', url: 'https://maps.app.goo.gl/YWA2gXjx1GxBhyVT6' },
+        { name: 'Empanadas Sabrosita', desc: 'South American cuisine, Karspüle 9', url: 'https://maps.app.goo.gl/RUzn8N9EEBpxDi568' },
+      ]
+    },
+    {
+      title: 'Vegan & Vegetarian',
+      note: 'Several restaurants above also offer good vegetarian and vegan options. These are more specialized:',
+      places: [
+        { name: 'Gaia Garden', desc: 'Nikolaistraße 18', url: 'https://maps.app.goo.gl/BYNbigPzwigjn1us6' },
+        { name: 'Chay Vegan Kitchen', desc: 'Goethe-Allee 4A', url: 'https://maps.app.goo.gl/DSw6j5LnHWMhyM797' },
+      ]
+    },
+    {
+      title: 'Cafés & Sweets',
+      places: [
+        { name: 'Cafe Cortes', desc: 'A delicious cake shop', url: 'https://maps.app.goo.gl/HWpPYp8HNCuaKAiF8' },
+      ]
+    },
+  ]
+
   const sectionTitleStyle = {
     fontSize: '23px',
     fontWeight: 700,
@@ -166,6 +225,56 @@ function LocalInfo() {
         </div>
       </section>
 
+      {/* Food & Restaurants Section */}
+      <section className="section-food" style={{ marginBottom: '48px' }}>
+        <h2 style={sectionTitleStyle}>Food & Restaurants</h2>
+        <p style={paragraphStyle}>
+          Göttingen has plenty of good restaurants within walking distance of the Institute. Here are some recommendations:
+        </p>
+
+        <div className="food-grid" style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: '24px'
+        }}>
+          {foodCategories.map((category) => (
+            <div key={category.title} style={{
+              background: '#f8f9fa',
+              borderRadius: '8px',
+              padding: '20px',
+              borderLeft: '3px solid #1e3a5f'
+            }}>
+              <h3 style={{ ...subSectionTitleStyle, marginTop: 0, marginBottom: '8px' }}>
+                {category.title}
+              </h3>
+              {category.note && (
+                <p style={{ fontSize: '13px', color: '#666', lineHeight: 1.5, marginBottom: '8px' }}>
+                  {category.note}
+                </p>
+              )}
+              {category.places.map((place) => (
+                <div key={place.name} style={listItemStyle}>
+                  <span style={bulletStyle}>■</span>
+                  {place.url ? (
+                    <a
+                      href={place.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: '#2d5a7b', textDecoration: 'underline', fontWeight: 500 }}
+                    >
+                      {place.name}
+                    </a>
+                  ) : (
+                    <span style={{ fontWeight: 500 }}>{place.name}</span>
+                  )}
+                  <span style={{ color: '#666', marginLeft: '6px' }}>— {place.desc}</span>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Animations and Responsive Styles */}
       <style>{`
         @keyframes slideFromRight {
@@ -188,9 +297,17 @@ function LocalInfo() {
           animation: slideFromRight 0.6s ease-out 0.4s forwards;
           opacity: 0;
         }
+
+        .section-food {
+          animation: slideFromRight 0.6s ease-out 0.6s forwards;
+          opacity: 0;
+        }
         
         @media (max-width: 700px) {
           .arriving-content {
+            grid-template-columns: 1fr !important;
+          }
+          .food-grid {
             grid-template-columns: 1fr !important;
           }
         }
