@@ -10,6 +10,7 @@ function Home() {
     { name: 'Daniel Grieser', affiliation: 'Universität Oldenburg' },
     { name: 'Lucas Lemoine', affiliation: 'Université Paris Est Créteil' },
     { name: 'Jean-Marie Lescure', affiliation: 'Université Paris Est Créteil' },
+    { name: 'Jørgen Olsen Lye', affiliation: 'University of Köln' },
     { name: 'Richard Melrose', affiliation: 'MIT' },
     { name: 'Omar Mohsen', affiliation: 'Paris-Cité University' },
     { name: 'Sergiu Moroianu', affiliation: 'Universitatea din București & IMAR' },
