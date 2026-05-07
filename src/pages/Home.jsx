@@ -1,33 +1,33 @@
 function Home() {
   const speakers = [
-    { name: 'Clara Aldana', affiliation: 'TBD' },
-    { name: 'Bernd Ammann', affiliation: 'Universität Regensburg' },
-    { name: 'Iakovos Androulidakis', affiliation: 'University of Athens' },
-    { name: 'Abdou Oussama Benabida', affiliation: 'Université du Québec à Montréal' },
-    { name: 'Karsten Bohlen', affiliation: 'Universität Regensburg' },
-    { name: 'Alessandro Pietro Contini', affiliation: 'Universität Hannover' },
-    { name: 'Ksenia Fedosova', affiliation: 'Universität Münster' },
-    { name: 'Daniel Grieser', affiliation: 'Universität Oldenburg' },
-    { name: 'Lucas Lemoine', affiliation: 'Université Paris Est Créteil' },
-    { name: 'Jean-Marie Lescure', affiliation: 'Université Paris Est Créteil' },
-    { name: 'Jørgen Olsen Lye', affiliation: 'University of Köln' },
-    { name: 'Richard Melrose', affiliation: 'MIT' },
-    { name: 'Omar Mohsen', affiliation: 'Paris-Cité University' },
-    { name: 'Sergiu Moroianu', affiliation: 'Universitatea din București & IMAR' },
-    { name: 'Victor Nistor', affiliation: 'Université de Lorraine' },
-    { name: 'Paolo Piazza', affiliation: 'Università di Roma' },
-    { name: 'Frédéric Rochon', affiliation: 'Université du Québec à Montréal' },
-    { name: 'Julie Rowlett', affiliation: 'Chalmers University' },
-    { name: 'Thomas Schick', affiliation: 'Universität Göttingen' },
-    { name: 'Vito Felice Zenobi', affiliation: 'Istituto Nazionale di Alta Matematica' },
+    { name: 'Clara Aldana', affiliation: 'TBD', website: 'https://claraaldana.com/' },
+    { name: 'Bernd Ammann', affiliation: 'Universität Regensburg', website: 'https://ammann.app.uni-regensburg.de/' },
+    { name: 'Iakovos Androulidakis', affiliation: 'University of Athens', website: 'http://scholar.uoa.gr/iandroul/biocv' },
+    { name: 'Abdou Oussama Benabida', affiliation: 'Université du Québec à Montréal', website: 'https://abdou-oussama-benabida.vercel.app/' },
+    { name: 'Karsten Bohlen', affiliation: 'Universität Regensburg', website: 'https://sites.google.com/view/kbohlen/start' },
+    { name: 'Alessandro Pietro Contini', affiliation: 'Universität Hannover', website: 'https://www.analysis.uni-hannover.de/institut/personenverzeichnis/personen-detailansicht/institut-fuer-analysis/wissenschaftliche-mitarbeiterinnen-und-mitarbeiter-2/alessandro-pietro-contini' },
+    { name: 'Ksenia Fedosova', affiliation: 'Universität Münster', website: 'https://www.uni-muenster.de/FB10/Service/show_perspage.shtml?id=1783' },
+    { name: 'Daniel Grieser', affiliation: 'Universität Oldenburg', website: 'https://uol.de/daniel-grieser' },
+    { name: 'Lucas Lemoine', affiliation: 'Université Paris Est Créteil', website: 'https://lama-umr8050.fr/membres/lemoine.lucas' },
+    { name: 'Jean-Marie Lescure', affiliation: 'Université Paris Est Créteil', website: 'https://lama-umr8050.fr/membres/lescure.jean_marie' },
+    { name: 'Jørgen Olsen Lye', affiliation: 'University of Köln', website: 'https://www.joergenolsenlye.com/' },
+    { name: 'Richard Melrose', affiliation: 'MIT', website: 'https://math.mit.edu/~rbm/' },
+    { name: 'Omar Mohsen', affiliation: 'Paris-Cité University', website: 'https://sites.google.com/view/omar-mohsen-webpage/home' },
+    { name: 'Sergiu Moroianu', affiliation: 'Universitatea din București & IMAR', website: 'https://www.imar.ro/~sergium/' },
+    { name: 'Victor Nistor', affiliation: 'Université de Lorraine', website: 'https://victor-nistor.apps.math.cnrs.fr/' },
+    { name: 'Paolo Piazza', affiliation: 'Università di Roma', website: 'https://research.uniroma1.it/researcher/f92bef1a8f2f1066d80ce36539412fe083a105b7f1a73473875ba2f4' },
+    { name: 'Frédéric Rochon', affiliation: 'Université du Québec à Montréal', website: 'http://profmath.uqam.ca/~rochon/' },
+    { name: 'Julie Rowlett', affiliation: 'Chalmers University', website: 'https://www.math.chalmers.se/~rowlett/' },
+    { name: 'Thomas Schick', affiliation: 'Universität Göttingen', website: 'https://topologie.math.uni-goettingen.de/tschick/index.html' },
+    { name: 'Vito Felice Zenobi', affiliation: 'Istituto Nazionale di Alta Matematica', website: 'https://research.uniroma1.it/researcher/baaae8f5e2d25c8f732136be70ceb983a92bfc084144b274678da21f' },
   ]
 
   const scientificOrganizers = [
-    { name: 'Cipriana Anghel', affiliation: 'Universität Göttingen' },
-    { name: 'Álvaro Sanchez Hernandez', affiliation: 'Universität Hannover' },
-    { name: 'Clément Cren', affiliation: 'Universität Göttingen' },
+    { name: 'Cipriana Anghel', affiliation: 'Universität Göttingen', website: 'https://sites.google.com/view/anghelcipriana/home' },
+    { name: 'Álvaro Sánchez Hernández', affiliation: 'Universität Hannover' },
+    { name: 'Clément Cren', affiliation: 'Universität Göttingen', website: 'https://clementcren.github.io/' },
     { name: 'Erfan Rezaei', affiliation: 'Universität Göttingen' },
-    { name: 'Rareș Stan', affiliation: 'IMAR Bucharest' },
+    { name: 'Rareș Stan', affiliation: 'IMAR Bucharest', website: 'https://www.rares-stan.ro/home' },
   ]
 
   const administration = [
@@ -93,13 +93,20 @@ function Home() {
           {speakers.map((speaker, index) => (
             <div key={index} style={{ ...listItemStyle, breakInside: 'avoid' }}>
               <span style={bulletStyle}>■</span>
-              <span style={{ fontWeight: 500 }}>{speaker.name}</span>
-              {/* <span style={{ color: '#666', marginLeft: '4px' }}>({speaker.affiliation})</span> */}
+              <span style={{ fontWeight: 500 }}>
+                {speaker.website ? (
+                  <a href={speaker.website} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>
+                    {speaker.name}
+                  </a>
+                ) : (
+                  speaker.name
+                )}
+              </span>
             </div>
           ))}
         </div>
       </section>
-
+      
       {/* Organizers Section */}
       <section className="section-organizers">
         <h2 style={sectionTitleStyle}>Organizers</h2>
@@ -115,7 +122,15 @@ function Home() {
             {scientificOrganizers.map((organizer, index) => (
               <div key={index} style={listItemStyle}>
                 <span style={bulletStyle}>■</span>
-                <span style={{ fontWeight: 500 }}>{organizer.name}</span>
+                <span style={{ fontWeight: 500 }}>
+                  {organizer.website ? (
+                    <a href={organizer.website} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>
+                      {organizer.name}
+                    </a>
+                  ) : (
+                    organizer.name
+                  )}
+                </span>
                 <span style={{ color: '#666', marginLeft: '4px' }}>({organizer.affiliation})</span>
               </div>
             ))}
