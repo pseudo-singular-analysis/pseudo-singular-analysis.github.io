@@ -81,8 +81,28 @@ function Home() {
         <p style={paragraphStyle}>
           Around 60 years ago, pseudodifferential operators were introduced as a tool for singular integral and elliptic problems in PDE. They quickly became relevant due to their usefulness, exemplified by their role in the Atiyah–Singer index theorem. In the subsequent years, the theory has found new depths and domains of application, and is today very much alive, in particular in the context of singular analytical and geometrical structures.
         </p>
-        <p style={{ ...paragraphStyle, marginBottom: 0 }}>
+        <p style={{ ...paragraphStyle, marginBottom: '24px' }}>
           The goal of this conference is to bring together experts and young researchers from various backgrounds who are interested in the use of pseudodifferential operators in singular settings to discuss their recent projects and results, and foster the communication between the diverse perspectives on the topic.
+        </p>
+        <p style={{ textAlign: 'center', margin: 0 }}>
+          <a
+            href="#registration"
+            style={{
+              display: 'inline-block',
+              padding: '10px 22px',
+              backgroundColor: '#1e3a5f',
+              color: 'white',
+              textDecoration: 'none',
+              borderRadius: '6px',
+              fontSize: '15px',
+              fontWeight: 600,
+              transition: 'background-color 0.2s ease'
+            }}
+            onMouseEnter={(e) => (e.target.style.backgroundColor = '#2d5a7b')}
+            onMouseLeave={(e) => (e.target.style.backgroundColor = '#1e3a5f')}
+          >
+            Register for the conference →
+          </a>
         </p>
       </section>
 

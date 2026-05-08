@@ -55,6 +55,34 @@ function Poster() {
           </a>
           {' '}for designing the poster and creating the accompanying drawings and artwork.
         </p>
+
+        <p style={{
+          textAlign: 'center',
+          marginTop: '20px',
+          fontSize: '15px',
+          color: '#333'
+        }}>
+          Download print-ready version:{' '}
+          <a
+            href="/final_poster_cip_A3_with_borders.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={linkStyle}
+            download
+          >
+            A3 (PDF)
+          </a>
+          {' · '}
+          <a
+            href="/final_poster_cip_A4_with_borders.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={linkStyle}
+            download
+          >
+            A4 (PDF)
+          </a>
+        </p>
       </section>
 
       <style>{`
