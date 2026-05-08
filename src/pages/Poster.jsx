@@ -8,6 +8,12 @@ function Poster() {
     borderBottom: '2px solid #e0e0e0'
   }
 
+  const linkStyle = {
+    color: '#2d5a7b',
+    textDecoration: 'underline',
+    fontWeight: 500
+  }
+
   const imgHref = '/final_poster_cip_A3_without_borders-1.png'
 
   return (
@@ -30,6 +36,25 @@ function Poster() {
             }}
           />
         </div>
+
+        <p style={{
+          textAlign: 'center',
+          marginTop: '24px',
+          fontSize: '15px',
+          color: '#333',
+          lineHeight: 1.7
+        }}>
+          Many thanks to{' '}
+          <a
+            href="https://www.linkedin.com/in/ioana-amza-7a2075367/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={linkStyle}
+          >
+            Ioana Amza
+          </a>
+          {' '}for designing the poster and creating the accompanying drawings and artwork.
+        </p>
       </section>
 
       <style>{`
