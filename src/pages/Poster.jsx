@@ -14,7 +14,7 @@ function Poster() {
     fontWeight: 500
   }
 
-  const imgHref = '/final_poster_cip_A3_without_borders-1.png'
+  const imgHref = '/poster_final_png_without_borders.png'
 
   return (
     <div>
