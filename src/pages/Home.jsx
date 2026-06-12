@@ -8,6 +8,7 @@ function Home() {
     { name: 'Alessandro Pietro Contini', affiliation: 'Universität Hannover', website: 'https://www.analysis.uni-hannover.de/institut/personenverzeichnis/personen-detailansicht/institut-fuer-analysis/wissenschaftliche-mitarbeiterinnen-und-mitarbeiter-2/alessandro-pietro-contini' },
     { name: 'Ksenia Fedosova', affiliation: 'Universität Münster', website: 'https://www.uni-muenster.de/FB10/Service/show_perspage.shtml?id=1783' },
     { name: 'Daniel Grieser', affiliation: 'Universität Oldenburg', website: 'https://uol.de/daniel-grieser' },
+    { name: 'Gayana Jayasinghe', affiliation: 'Università di Roma', website: 'https://sites.google.com/view/gayanajayasinghe/home' },
     { name: 'Mirela Kohr', affiliation: 'Babeş-Bolyai University', website: 'https://math.ubbcluj.ro/~mkohr/'},
     { name: 'Lucas Lemoine', affiliation: 'Université Paris Est Créteil', website: 'https://lama-umr8050.fr/membres/lemoine.lucas' },
     { name: 'Jean-Marie Lescure', affiliation: 'Université Paris Est Créteil', website: 'https://lama-umr8050.fr/membres/lescure.jean_marie' },
